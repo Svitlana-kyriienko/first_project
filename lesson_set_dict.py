@@ -335,11 +335,11 @@ def task14():
         result[word] = result.get(word, 0) + 1
 
 # Проходимо по всіх парах (ключ, значення) у словнику result
-for key, value in result.items():
+    for key, value in result.items():
     # Виводимо слово (key) і кількість його повторень (value)
-    print(key, value)
+        print(key, value)
 
-# task14()
+#task14()
 
 #15
 #  Дано два списки чисел. Знайдіть всі числа, що зустрічаються як в першому, так і другому списках, і надрукуйте їх у порядку зростання.
