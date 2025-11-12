@@ -10,13 +10,77 @@ def name():
 
 # name() 
 
+def name_hello(name="NON"):
+    return f"Hello, {name}!"
+
+# print(name_hello())
+
+
 # 2. Напишіть функцію, яка отримує рядок і ціле число `n` та повертає `n` копій заданого рядка.
+
+def task2_1():
+    word = input("Enter word: ")
+    number = int(input("Enter number n: "))
+    print(f"{word} " * number)
+
+# task2_1()
+
+# Вариант написания функции через return, когда значения аргументов мы вводим не в функции:
+def copy_string(text, n):
+    return (" " + text + " ") * n
+
+# text = input("Enter text:")
+# n = int(input("Enter n:")) 
+
+# # print(copy_string(text, n), end=" ")
+
 
 # 3. Напишіть функцію для обчислення суми двох цілих чисел.
 
+def task3():
+    number1 = int(input("Enter number1: "))
+    number2 = int(input("Enter number2: "))
+    return number1 + number2
+
+# print(task3())
+
+
 # 4. Напишіть функцію для отримання рядка з перших `n` символів іншого рядка. Якщо довжина рядка менше `n`, поверніть початковий рядок.
 
+def text_n1():
+    text1 = input("Enter text: ")
+    n = int(input("Enter n: "))
+    if n <= (len(text1)):
+        print(text1[:n])
+    else:
+        print(text1)
+
+# text_n1()
+
+# Вариант написания функции через return, когда значения аргументов мы вводим не в функции
+def text_n(text1, n):
+    if n <= len(text1):
+        return text1[:n]
+    else:
+        return text1
+    
+# text1 = input("Enter text: ")
+# n = int(input("Enter n: "))
+
+# print(text_n(text1, n))
+
+
 # 5. Напишіть функцію для визначення найбільшого з трьох цілих чисел з використанянм вбудованої функції `max()`.
+
+def max_number(n1,n2,n3):
+    return max(n1,n2,n3)
+
+n1 = 4
+n2 = 9
+n3 = 67
+
+# print(max_number(n1,n2,n3))
+    
 
 # 6. Напишіть функцію для створення позначок тегів `HTML` навколо введених рядків. Функція отримує назву тега `HTML` і рядок, який необхідно помістити у відповідні теги.
 
@@ -29,7 +93,44 @@ def name():
 #     <strong>Python</strong>
 #     ```
 
+def task6():
+    text = input("Enter text: ")
+    teg = text.split()[0]
+    string = " ".join(text.split()[1:])
+    print(f"<{teg}>{string}</{teg}>")
+
+# task6()
+
+# Вариант написания функции через return, когда значения аргументов мы вводим не в функции:
+def task6_2(teg,string):
+    return f"<{teg}>{string}</{teg}>"
+
+# text = input("Enter text: ")
+# teg = text.split()[0]
+# string = " ".join(text.split()[1:])
+
+# print(task6_2(teg,string))
+
+
 # 7. Напишіть функцію, яка повертає назву пори року для введеного значення номера місяця.
+
+def task7(month_number):
+    # month_number = int(input("Enter month number: "))
+    if month_number in [1, 2, 12]:
+        return "winter"
+    elif month_number in [3, 4, 5]:
+        return "spring"
+    elif month_number in [6, 7, 8]:
+        return "summer"
+    elif month_number in [9, 10, 11]:
+        return "summer"
+    else:
+        return "non-existent mohth"
+
+# month_number = int(input("Enter month number: "))
+
+# print(task7(month_number))
+
 
 # 8. Напишіть функцію для створення гістограми (наприклад, у вигляді *) із заданого списку цілих чисел як у вихідних даних. Формат введення списку чисел як у вхідних даних.
 
@@ -49,10 +150,43 @@ def name():
 #     ***
 #     ```
 
+list1 = [2,7,1,4,2,3,9,3]
+
+def task8():
+    for i in list1:
+        print("*" * i)
+
+# task8()
+
+def task8_1():
+    i = 0
+    while list1[i] < len(list1):
+        print("*" * list1[i])
+        i += 1
+
+list1 = [2,7,1,4,2,3,9,3]
+
+# task8_1()
+
 
 # *Middle level*
 
 # 9. Напишіть функцію для визначення, чи рік високосний чи ні.
+
+def task9(year1):
+    if year1 % 400 == 0:
+        return "leap year"
+    elif year1 % 100 == 0:
+        return "common year"
+    elif year1 % 4 == 0:
+        return "leap year"
+    else:
+        return "common year"
+
+# year1 = int(input("Enter jear: "))
+
+# print(task9(year1))
+
 
 # 10. Напишіть функцію, яка отримує значення середньомісячної кількості опадів по місяцях (в мм) і повертає загальний обсяг опадів протягом року, середньорічну кількість опадів, назви місяців та значення з найвищим та найменшим числом опадів протягом року.
 
@@ -64,6 +198,20 @@ def name():
 #     ```
 #     (621.0, 51.75, (101.0, 'July'), (22.0, 'January'))
 #     ```
+
+def task10():
+    rain = [22, 22, 24, 49, 72, 98, 101, 82, 51, 40, 36, 24]
+    mohths = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+
+    rain_res1 = [float(sum(rain))]
+    rain_res1.extend([sum(rain)/12])
+    rain_max = max(rain)
+    rain_min = min(rain)
+
+    print(f"({rain_res1[0]}, {rain_res1[1]}, ({rain_max}, '{mohths[rain.index(rain_max)]}'), ({rain_min}, '{mohths[rain.index(rain_min)]}'))")
+
+# task10()
+
 
 # 11. На стадіоні є три категорії місць для сидіння: місця класу A коштують a грошових одиниць, місця класу B коштують b грошових одиниць, а місця класу C - c грошових одиниць. Напишіть першу функцію, яка запитує скільки продано квитків на кожний клас місць, і другу функцію, яка відображає суму отриманого доходу від продажу квитків на кожен клас окремо і загалом. Формати введення і виведення такі, як у вхідних і вихідних даних.
 
@@ -84,35 +232,37 @@ def name():
 #     ({'A': 922.5, 'B': 472.5, 'C': 158.25}, 1553.25)
 #     ```
 
-def get_ticket_data():
-    tickets = {}
-    # "_" - симвл, який м/вік-ти замість змінної циклу, коли цикл лише для кіл-ті повторювань без підстановки значень (напр, значень змінної "i")
-    '''for i in range(3):
-            print(1)
+# def get_ticket_data():
+#     tickets = {}
+#     # "_" - симвл, який м/вік-ти замість змінної циклу, коли цикл лише для кіл-ті повторювань без підстановки значень (напр, значень змінної "i")
+#     '''for i in range(3):
+#             print(1)
             
-        аналог (і - не виколристовувалось у циклі)'''
+#         аналог (і - не виколристовувалось у циклі)'''
     
-    for i in range(3):
-        category = input().strip()
-        price = float(input().strip())
-        sold = int(input().strip())
-        tickets[category] = (price, sold)
+#     for i in range(3):
+#         category = input().strip()
+#         price = float(input().strip())
+#         sold = int(input().strip())
+#         tickets[category] = (price, sold)
 
-    return tickets
+#     return tickets
 
-# get_ticket_data()
+# # get_ticket_data()
 
-def calculate_revenue(tickets):
-    tickets_by_class = {}
-    total = 0
-    for category, (price, sold) in tickets.items():
-        revenue = price * sold
-        tickets_by_class[category] = revenue
-        total += revenue
+# def calculate_revenue(tickets):
+#     tickets_by_class = {}
+#     total = 0
+#     for category, (price, sold) in tickets.items():
+#         revenue = price * sold
+#         tickets_by_class[category] = revenue
+#         total += revenue
 
-    return tickets_by_class, total
+#     return tickets_by_class, total
 
-print(calculate_revenue(get_ticket_data()))
+# print(calculate_revenue(get_ticket_data()))
+
+# # calculate_revenue(tickets)
 
 
 # 12. Напишіть функцію, яка перевіряє, чи рядок є паліндром чи ні. Регістр літер, пропуски і знаки пунктуації не враховувати.  
